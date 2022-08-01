@@ -28,7 +28,7 @@ export default function Sessions({ sessions }) {
             <SessionWeekday>{`${session.weekday} - ${session.date}`}</SessionWeekday>
             <HoursContainer>
               {session.showtimes.map((hour, index) => (
-                <Link to={`/assentos/:idSessao`}>
+                <Link to={`/assentos/${hour.id}`}>
                   <Hour onClick={() => hourSelected(hour)} key={index}>
                     {hour.name}
                   </Hour>
