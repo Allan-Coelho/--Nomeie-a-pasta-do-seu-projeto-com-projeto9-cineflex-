@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie/Movie";
 import axios from "axios";
+import PageTitle from "../components/PageTitle/PageTitle";
+import HeaderLogo from "../components/HeaderLogo/HeaderLogo";
 
 export default function Movies() {
   const [moviesData, setMoviesData] = react.useState(null);
@@ -19,9 +21,9 @@ export default function Movies() {
 
   return (
     <>
-      <HeaderLogo>CINEFLEX</HeaderLogo>
+      <HeaderLogo />
       <Container>
-        <SelectMovie>Selecione o filme</SelectMovie>
+        <PageTitle title="Selecione o filme" />
         {moviesData !== null
           ? moviesData.map((movie, index) => {
               return <Movie movieData={movie} key={index} />;
@@ -39,30 +41,5 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 67px;
   padding: 0px 25px;
-`;
-
-const HeaderLogo = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 67px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 34px;
-  font-weight: 400;
-  color: #e8833a;
-  background-color: #c3cfd9;
-`;
-
-const SelectMovie = styled.span`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 110px;
-  font-size: 24px;
 `;

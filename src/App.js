@@ -3,12 +3,14 @@ import "./css/style.css";
 import Movies from "./pages/Movies/Movies";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MoviePage from "./pages/MoviePage/MoviePage";
+import MovieTheaterSeats from "./pages/MovieTheaterSeats/MovieTheaterSeats";
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Movies />} />
         <Route path="/sessoes/:idFilme" element={<MoviePage />} />
+        <Route path="/assentos/:idSessao" element={<MovieTheaterSeats />} />
       </Routes>
     </BrowserRouter>
   );
