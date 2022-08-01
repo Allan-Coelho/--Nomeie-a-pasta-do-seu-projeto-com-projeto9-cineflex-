@@ -1,10 +1,16 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import HeaderLogo from "../components/HeaderLogo/HeaderLogo";
 
 export default function Success() {
   const location = useLocation();
-  console.log(location.state);
+  const navigate = useNavigate();
+
+  function goToHome(event) {
+    event.preventDefault();
+    navigate("/");
+  }
+
   return (
     <>
       <HeaderLogo />
@@ -27,6 +33,7 @@ export default function Success() {
           <Text>{location.state.cpf}</Text>
         </SectionContainer>
       </Container>
+      <SubmitButton onClick={goToHome}>Voltar para Home</SubmitButton>
     </>
   );
 }
@@ -51,20 +58,37 @@ const Bold = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0px 25px;
-  margin-bottom: 117px;
+  margin-bottom: 40px;
 `;
 
 const SectionContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   text-align: left;
   width: 100%;
+  margin-bottom: 35px;
 `;
 
 const Text = styled.span`
   font-size: 22px;
+  margin: 5px 0px;
+`;
+
+const SubmitButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 225px;
+  height: 42px;
+  background: #e8833a;
+  border-radius: 3px;
+  color: white;
+  font-size: 18px;
+  margin-top: 0px;
+  border: 1px solid #e8833a;
+  margin: 0 auto;
+  cursor: pointer;
 `;

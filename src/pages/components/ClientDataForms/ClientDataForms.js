@@ -3,7 +3,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-export default function ClientDataForms({ selectedSeats, session }) {
+export default function ClientDataForms({
+  selectedSeats,
+  session,
+  setSeats,
+  setSelectedSeats,
+  setSessionData,
+}) {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const navigate = useNavigate();
@@ -27,7 +33,12 @@ export default function ClientDataForms({ selectedSeats, session }) {
 
     promise.then(() => {
       navigate("/sucesso", {
-        state: { seats: selectedSeats, session: session, name: name, cpf: cpf },
+        state: {
+          seats: selectedSeats,
+          session: session,
+          name: name,
+          cpf: cpf,
+        },
       });
     });
   }

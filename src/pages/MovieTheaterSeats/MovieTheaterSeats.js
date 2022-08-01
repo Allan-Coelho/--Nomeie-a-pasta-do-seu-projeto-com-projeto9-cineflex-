@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import ClientDataForms from "../components/ClientDataForms/ClientDataForms";
 import FooterMovie from "../components/FooterMovie/FooterMovie";
 import HeaderLogo from "../components/HeaderLogo/HeaderLogo";
 import PageTitle from "../components/PageTitle/PageTitle";
@@ -28,7 +27,7 @@ export default function MovieTheaterSeats() {
       <HeaderLogo />
       <PageTitle title="Selecione o(s) assento(s)" />
       <Container>
-        <Seats seatsData={sessionData.seats} session={sessionData} />
+        <Seats seatsData={sessionData.seats} session={sessionData} setSessionData={setSessionData}/>
       </Container>
 
       <FooterMovie

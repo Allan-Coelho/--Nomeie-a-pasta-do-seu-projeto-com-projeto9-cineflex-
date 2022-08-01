@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import ClientDataForms from "../ClientDataForms/ClientDataForms";
 
-export default function Seats({ seatsData, session }) {
+export default function Seats({ seatsData, session, setSessionData }) {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [seats, setSeats] = useState(
     seatsData.map((seat) => {
@@ -70,7 +70,7 @@ export default function Seats({ seatsData, session }) {
           <span>Indisponível</span>
         </SeatsSubtitle>
       </SeatsSubtitleContainer>
-      <ClientDataForms selectedSeats={selectedSeats} session={session} />
+      <ClientDataForms selectedSeats={selectedSeats} session={session} setSeats={setSeats} setSelectedSeats={setSelectedSeats} setSessionData={setSessionData}/>
     </>
   );
 }

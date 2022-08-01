@@ -1,25 +1,7 @@
-import react from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Sessions({ sessions }) {
-  const [selectedSession, setSelectedSession] = react.useState(null);
-
-  function hourSelected(hour) {
-    const findSession = sessions.find((session) => {
-      return session.showtimes.find((sessionHour) => {
-        if (sessionHour.id === hour.id) {
-          return session;
-        }
-      });
-    });
-
-    setSelectedSession({
-      session: findSession,
-      hour: hour,
-    });
-  }
-
   return (
     <Container>
       {sessions.map((session) => {
@@ -29,9 +11,7 @@ export default function Sessions({ sessions }) {
             <HoursContainer>
               {session.showtimes.map((hour, index) => (
                 <Link to={`/assentos/${hour.id}`}>
-                  <Hour onClick={() => hourSelected(hour)} key={index}>
-                    {hour.name}
-                  </Hour>
+                  <Hour key={index}>{hour.name}</Hour>
                 </Link>
               ))}
             </HoursContainer>
